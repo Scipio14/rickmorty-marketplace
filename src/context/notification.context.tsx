@@ -4,6 +4,7 @@ import { Notification } from "../components";
 
 type ContextProps = {
   getError: (msg: string) => void;
+  getSuccess: (msg: string) => void;
 };
 
 const NotificationContext = React.createContext<ContextProps | null>(null);
