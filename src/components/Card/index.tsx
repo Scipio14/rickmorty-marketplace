@@ -24,7 +24,7 @@ export const CardComponent: FC<CardProps> = ({
 }) => {
   return (
     <Card>
-      <CardMedia component="img" height="194" image={image} alt="Paella Dish" />
+      <CardMedia component="img" height="194" image={image} alt={name} />
       <CardContent>
         <Typography sx={{ mb: 1.5 }} variant="h4">
           {name}
