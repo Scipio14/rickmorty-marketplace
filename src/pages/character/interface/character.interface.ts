@@ -1,5 +1,3 @@
-//https:quicktype.io/
-
 export interface TypeCharacter {
   id: number;
   name: string;
@@ -9,10 +7,10 @@ export interface TypeCharacter {
   gender: string;
   origin: Location;
   location: Location;
-  episode: string[];
   image: string;
-  created: Date;
+  episode: string[];
   url: string;
+  created: Date;
 }
 
 export interface Location {
