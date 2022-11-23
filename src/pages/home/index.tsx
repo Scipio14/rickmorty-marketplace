@@ -66,6 +66,7 @@ export const HomePage: React.FC<{}> = () => {
                       species={character.species}
                       status={character.status}
                       key={character.id}
+                      id={character.id}
                     />
                   </Grid>
                 ))}
