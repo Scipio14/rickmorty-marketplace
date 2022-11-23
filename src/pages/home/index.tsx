@@ -26,7 +26,6 @@ export const HomePage: React.FC<{}> = () => {
       .getAll({ page })
       .then((r) => {
         setCount(r.data.info.pages);
-        console.log(r.data.results);
         setAllCharacters(r.data.results);
         setTimeout(() => setLoading(false), 1000);
       })
@@ -59,13 +58,12 @@ export const HomePage: React.FC<{}> = () => {
             {allcharacters?.length !== 0 ? (
               <Grid sx={{ my: 2 }} container spacing={2} direction="row">
                 {allcharacters!.map((character) => (
-                  <Grid item xs={3}>
+                  <Grid item xs={3} key={character.id}>
                     <CardComponent
                       image={character.image}
                       name={character.name}
                       species={character.species}
                       status={character.status}
-                      key={character.id}
                       id={character.id}
                     />
                   </Grid>
