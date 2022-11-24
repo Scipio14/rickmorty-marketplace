@@ -7,7 +7,6 @@ import {
   Box,
   Pagination,
 } from "@mui/material";
-import { useNotification } from "../../context/notification.context";
 import { CardComponent, HeaderComponent } from "components";
 import { characters } from "api/characters";
 import { TypeCharacter } from "./interface/character.interface";

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC, useState, useEffect } from "react";
 import {
   Card,
   CardMedia,
@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "redux/hooks";
+import { addToCart } from "../../redux/slices/cart.slice";
 
 type CardProps = {
   image: string;
@@ -26,7 +28,26 @@ export const CardComponent: FC<CardProps> = ({
   species,
   id,
 }) => {
+  const [disabledBtn, setDisabledBtn] = useState<boolean>(false);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const itemExists = useAppSelector((state) => state.cart);
+  // console.log(itemExists);
+  useEffect(() => {
+    setDisabledBtn(itemExists.some((item) => item.id === id));
+  }, [itemExists, id]);
+
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id,
+        name,
+        image,
+        info: status,
+      })
+    );
+  };
   return (
     <Card>
       <CardMedia component="img" height="194" image={image} alt={name} />
@@ -46,6 +67,15 @@ export const CardComponent: FC<CardProps> = ({
           onClick={() => navigate(`/character/${id}`)}
         >
           Learn More
+        </Button>
+        <Button
+          fullWidth
+          variant="outlined"
+          size="small"
+          disabled={disabledBtn}
+          onClick={handleAddToCart}
+        >
+          Add to cart
         </Button>
       </CardActions>
     </Card>
