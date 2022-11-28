@@ -36,7 +36,12 @@ export const Navbar: React.FC<{}> = () => {
               alignItems="center"
             >
               <Grid item>
-                <Typography>Codrr</Typography>
+                <Typography
+                  sx={{ cursor: "pointer" }}
+                  onClick={() => navigate("/")}
+                >
+                  Codrr
+                </Typography>
               </Grid>
               <Grid item>
                 <Stack direction="row" spacing={2}>

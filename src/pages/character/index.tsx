@@ -12,7 +12,7 @@ import {
   Chip,
 } from "@mui/material";
 
-export const CharacterPage: React.FC = () => {
+const CharacterPage: React.FC = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState<boolean>(true);
   const [character, setCharacter] = useState<TypeCharacter | null>(null);
@@ -62,3 +62,5 @@ export const CharacterPage: React.FC = () => {
     </>
   );
 };
+
+export default CharacterPage;
